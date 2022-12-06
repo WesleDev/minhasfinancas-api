@@ -17,6 +17,7 @@ import javax.persistence.Table;
 
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 
+import com.wesledev.minhasFinancas.model.enums.StatusLancamento;
 import com.wesledev.minhasFinancas.model.enums.TipoLancamento;
 
 import lombok.Builder;
@@ -32,6 +33,9 @@ public class Lancamento {
 	@Column(name = "id")
 	@GeneratedValue( strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(name = "descricao")
+	private String descricao;
 	
 	@Column(name = "mes")
 	private Integer mes;
@@ -56,6 +60,6 @@ public class Lancamento {
 	
 	@Column(name = "status")
 	@Enumerated(value = EnumType.STRING)
-	private TipoLancamento status;
+	private StatusLancamento status;
 	
 }
